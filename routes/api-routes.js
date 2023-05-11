@@ -4,13 +4,13 @@ const fs = require ("fs");
 
 //defines the get requets to this routes end point 'api/notes'
 router.get('/api/notes', async (req, res) => {
-    const dbJson = await JSON.parsel(fs.readFileSync("db/db.json","utf8"));
+    const dbJson = await JSON.parse(fs.readFileSync("db/db.json","utf8"));
     res.json(dbJson);
 });
 
 //defines the post request to this routes end point 'api/note'
 router.post('/api/notes', async (req, res) => {
-    const dbJson = await JSON.parsel(fs.readFileSync("db/db.json","utf8"));
+    const dbJson = await JSON.parse(fs.readFileSync("db/db.json","utf8"));
     const newFeedback = {
         title: req.body.title,
         text: req.body.text,
